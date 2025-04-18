@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';  // Added Link import
 import ChapterList from './ChapterList';
 import Chapter from './Chapter';
+import API_BASE from '../api/api';
+
 
 const Novel = () => {
   const { id } = useParams();
@@ -17,7 +19,7 @@ const Novel = () => {
   useEffect(() => {
     const fetchNovel = async () => {
       try {
-        const response = await fetch(`/api/novels/${id}`);
+        const response = await fetch(`${API_BASE}/novels/${id}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

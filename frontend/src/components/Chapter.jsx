@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import API_BASE from '../api/api';
 
 const Chapter = ({ chapter, novelId, onBack, onSelectChapter }) => {
   const { id } = useParams();
@@ -9,7 +10,7 @@ const Chapter = ({ chapter, novelId, onBack, onSelectChapter }) => {
 
   useEffect(() => {
     // Fetch novel to get all chapters for navigation
-    fetch(`/api/novels/${novelId}`)
+    fetch(`${API_BASE}/novels/${novelId}`)
       .then(res => res.json())
       .then(novel => {
         // Handle array response from proxy

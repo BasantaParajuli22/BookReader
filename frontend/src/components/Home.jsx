@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import API_BASE from '../api/api';
 
 const Home = () => {
   const [novels, setNovels] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/novels')
+    fetch(`${API_BASE}/novels`)
       .then(res => res.json())
       .then(data => {
         setNovels(data);

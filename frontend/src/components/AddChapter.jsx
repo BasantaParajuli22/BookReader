@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_BASE from './api/api';
 
 const AddChapter = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const AddChapter = () => {
 
     try {
       // 1. Get the current novel
-      const novelResponse = await fetch('/api/novels/1');
+      const novelResponse = await fetch(`${API_BASE}/novels/1`);
       if (!novelResponse.ok) throw new Error('Failed to fetch novel');
       const novel = await novelResponse.json();
 
@@ -26,7 +27,7 @@ const AddChapter = () => {
       };
 
       // 3. Update the novel with the new chapter
-      const updateResponse = await fetch('/api/novels/update/1', {
+      const updateResponse = await fetch(`${API_BASE}/novels/update/1`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -40,7 +41,7 @@ const AddChapter = () => {
       if (!updateResponse.ok) throw new Error('Failed to add chapter');
 
       // 4. Redirect back to the novel
-      navigate('/novel/1');
+      navigate(`/novel/1`);
     } catch (error) {
       console.error('Error adding chapter:', error);
       alert('Failed to add chapter. Please try again.');
