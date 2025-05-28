@@ -1,0 +1,18 @@
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#001f33" stop-opacity="0.1"/>
+    </radialGradient>
+    <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#00f0ff" />
+    </filter>
+  </defs>
+
+  <circle cx="300" cy="300" r="280" fill="url(#glow)" />
+  
+  <path
+    d="M300 120c-20 30-50 50-90 60 10 20 20 40 20 60s-20 40-40 50c-30 10-60 0-80-20 10 40 30 80 60 110-10 10-20 20-30 30 40 10 90 0 130-30 10 10 20 20 30 30 40-30 70-70 90-120 10-20 10-50-10-70-20-20-60-30-80-60z"
+    fill="none" stroke="#00f0ff" stroke-width="8" filter="url(#glowFilter)"
+  />
+</svg>
